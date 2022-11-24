@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { CallContext } from '../../Context/Context';
 
 const Login = () => {
-    const {LogInUser} = useContext(CallContext)
+    const {LogInUser,googleSignin} = useContext(CallContext)
     const {register,handleSubmit}=useForm()
     const handlelogIn = (data) => {
         console.log(data)
@@ -13,6 +13,16 @@ const Login = () => {
                 console.log(user)
             })
         .catch((error) => {
+            console.log(error)
+        })
+    }
+    const handleGoogleSignIn = () => {
+        googleSignin()
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+            })
+            .catch(error => {
             console.log(error)
         })
     }
@@ -33,12 +43,12 @@ const Login = () => {
                         <div className="divider">OR</div>
                     </div>
                 </div>
-                <div>
-                    <button className='btn btn-primary'>google</button>
-                    <button className='btn btn-primary'>facebppl</button>
-                    <button className='btn btn-primary'>gisthub</button>
-                </div>
             </form>
+            <div>
+                <button onClick={handleGoogleSignIn} className='btn btn-primary'>google</button>
+                <button className='btn btn-primary'>facebppl</button>
+                <button className='btn btn-primary'>gisthub</button>
+            </div>
         </div>
     );
 };
