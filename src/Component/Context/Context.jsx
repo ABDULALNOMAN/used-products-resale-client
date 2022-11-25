@@ -11,9 +11,16 @@ const Context = ({ children }) => {
     const handleSignUp = (email, password) => {
         return createUserWithEmailAndPassword(auth,email,password)
     }
+    const LogInUser = (email,password) => {
+        return signInWithEmailAndPassword(auth,email,password)
+    }
+    const googleSignin = () => {
+        return signInWithPopup(auth,googleProvider)
+    }
     useEffect(() => {
-      const unsubcribe = onAuthStateChanged(auth, currentUser => {
-          setUsers(currentUser)
+        const  unsubcribe = onAuthStateChanged(auth, currentUser => {
+            setUsers(currentUser)
+            setLoding(false)
         })
         return () => {
             unsubcribe()
@@ -22,12 +29,7 @@ const Context = ({ children }) => {
     const LogOut = () => {
         return signOut(auth)
     }
-    const LogInUser = (email,password) => {
-        return signInWithEmailAndPassword(auth,email,password)
-    }
-    const googleSignin = () => {
-        return signInWithPopup(auth,googleProvider)
-    }
+    console.log(users)
     const user ={loding,handleSignUp,users,LogOut,LogInUser,googleSignin}
     return (
         <div>

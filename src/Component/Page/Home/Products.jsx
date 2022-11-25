@@ -1,50 +1,30 @@
-import React from 'react';
-import apple from '../../../assets/CardPicture/apple-iphone-14-pro-max-1.jpg';
-import samsung from '../../../assets/CardPicture/samsung-galaxy-s22-plus-5g-2.jpg';
-import mi from '../../../assets/CardPicture/xiaomi-12t-pro-1.jpg';
+import React, { useState } from 'react';
+import { useLoaderData } from 'react-router-dom';
+import Modal from './Modal';
+import Productsitem from './Productsitem';
 
 const Products = () => {
-    const productsItem = [
-        {
-            "image": apple,
-            "name": "iphone",
-            "location": "chittagong",
-            "resale": 60000,
-            "originl":10000,
-            "use": 2,
-            "sellerName": 'motin',
-        },
-        {
-            "image": samsung,
-            "name": "samsung",
-            "location": "dhaka",
-            "resale": 40000,
-            "originl":20000,
-            "use": 1,
-            "sellerName": 'karim',
-        },
-        {
-            "image": mi,
-            "name": "xiomi",
-            "location": "comilla",
-            "resale": 60000,
-            "originl":30000,
-            "use": 2,
-            "sellerName": '',
-        }
-    ]
+    const datas = useLoaderData()
+    const [modalitem, setModalitem] = useState(null)
+    const handleModalForm = event => {
+        event.preventDefault()
+        const form = event.target;
+        const number = form.number.value;
+        const location = form.location.value;
+        console.log(number, location)
+        fetch('')
+
+    } 
     return (
-        <div className='bg-base-100 '>
-            <div className="card card-compact w-96 shadow-xl container mx-auto">
-                <figure><img src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
-                <div className="card-body">
-                    <h2 className="card-title">Shoes!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
-                    </div>
-                </div>
+        <div className='my-10'>
+            <div className='grid grid-cols-2 gap-4 container mx-auto'>
+                {
+                    datas.map(data=><Productsitem key={data._id} setModalitem={setModalitem} data={data}></Productsitem>)
+                 }
             </div>
+            {modalitem && <Modal
+                setModalitem={setModalitem} handleModalForm={handleModalForm}
+                modalitem={modalitem}></Modal>}
         </div>
     );
 };
