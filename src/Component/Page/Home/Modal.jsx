@@ -19,12 +19,16 @@ const Modal = ({ modalitem,setModalitem,handleModalForm }) => {
                         <div className='grid grid-cols-2 gap-2'>
                             <input
                                 defaultValue={name}
-                                disabled type="text" placeholder="Type here" className="input input-bordered w-full"
+                                disabled type="text" placeholder="Type here"
+                                className="input input-bordered w-full"
+                                name="itemname"
                             />
                             <input
-                                defaultValue={`price: ${resale} Taka`}
+                                defaultValue={resale}
                                 disabled
-                                type="text" placeholder="Type here" className="input input-bordered w-full"
+                                type="text" placeholder="Type here"
+                                className="input input-bordered w-full"
+                                name='price'
                             />
                         </div>
                         <div className='grid grid-cols-2 gap-2'>

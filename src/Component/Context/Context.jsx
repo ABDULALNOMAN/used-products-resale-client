@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../Firebase/Firebase.config';
-import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut} from 'firebase/auth';
+import {createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth';
 
 export const CallContext = createContext()
 const auth = getAuth(app)
@@ -26,11 +26,14 @@ const Context = ({ children }) => {
             unsubcribe()
         }
     }, [users])
+    const updateUser = (userInfo) => {
+        return updateProfile(auth.currentUser, userInfo)
+    }
     const LogOut = () => {
         return signOut(auth)
     }
     console.log(users)
-    const user ={loding,handleSignUp,users,LogOut,LogInUser,googleSignin}
+    const user ={loding,handleSignUp,users,LogOut,LogInUser,googleSignin,updateUser}
     return (
         <div>
             <CallContext.Provider value={user}>
