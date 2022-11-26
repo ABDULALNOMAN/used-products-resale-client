@@ -1,27 +1,38 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { CallContext } from '../../Context/Context';
+import useIndentify from '../../custom/useIndentify';
+
 
 const Signup = () => {
-    const {handleSignUp,updateUser}=useContext(CallContext)
+    const { handleSignUp, updateUser } = useContext(CallContext)
+    const [info , setInfo] = useState({})
+    const siteuser = useIndentify(info)
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
         const name = data.first +''+ data.lest
-        const updateInfo = {
-            displayName:name
-        }
         handleSignUp(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                updated(updateInfo)
+                updated(name)
+                if(data.siteUser === "seller"){
+                    const identify = {
+                        email:user.email,
+                        user:'seller'
+                    }
+                    setInfo(identify)
+                }
             })
-        .catch((error) => {
+        .catch((error) =>{
             console.log(error)
         })
     }
-    const updated = (updateInfo) => {
+    const updated = (name) => {
+        const updateInfo = {
+            displayName: name,
+        }
         updateUser(updateInfo)
             .then(result => {
             const user = result.user;
@@ -29,42 +40,52 @@ const Signup = () => {
             })
             .then(error => console.log(error))
     }
+    console.log(info)
+    console.log(siteuser)
     return (
-        <div>
+        <div className=' max-w-md mx-auto px-4 py-10 my-10 rounded-md bg-sky-900 text-black'>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='grid grid-cols-2 gap-4'>
                     <div className='flex flex-col'>
-                        <label htmlfor="text">first name</label>
-                        <input {...register('first')} className='input input-bordered' type="text" />
+                        <label className='text-xl italic text-white' htmlfor="text">first name</label>
+                        <input {...register('first')} className='input input-bordered bg-gray-400 text-lg italic' type="text" />
                     </div>
                     <div className='flex flex-col'>
-                        <label htmlFor="text">lest name</label>
-                        <input {...register('lest')} className='input input-bordered' type="text" />
+                        <label className='text-xl italic text-white' htmlFor="text">lest name</label>
+                        <input {...register('lest')} className='input input-bordered bg-gray-400 text-lg italic' type="text" />
                     </div>
                 </div>
-                <div className='flex flex-col'>
-                    <label htmlFor="email">email</label>
-                    <input {...register('email',{required:true})} className='input input-bordered' type={'email'}/>
+                <div className='flex flex-col my-2'>
+                    <label className='text-xl italic text-white' htmlFor="email">email</label>
+                    <input {...register('email',{required:true})} className='input input-bordered bg-gray-400 text-lg italic' type={'email'}/>
                 </div>
                 <div className='flex flex-col'>
-                    <label htmlFor="password">password</label>
-                    <input {...register('password',{required:true })} className='input input-bordered' type="password"/>
+                    <label className='text-xl italic text-white' htmlFor="password">password</label>
+                    <input {...register('password',{required:true })} className='input input-bordered bg-gray-400 text-lg font-semibold italic' type="password"/>
                 </div>
-                <div >
-                    <input
+                <div className='flex flex-row my-4'>
+                    <div className='flex items-center'>
+                        <input
                         type="radio"
                         name="siteUser"
-                        value={'seller'} className="radio"
+                        value={'seller'}
+                        className="radio mr-1 bg-teal-400"
                         {...register('siteUser')}
-                    />
-                    <input
+                        />
+                        <label className='text-lg font-semibold italic text-white' htmlFor="siteUser">seller</label>
+                    </div>
+                    <div className='flex items-center ml-3'>
+                        <input
                         type="radio"
-                        name="siteUser" className="radio"
+                        name="siteUser"
+                        className="radio mr-1 bg-teal-400"
+                        {...register('siteUser')}
                         value={'user'}
-                        checked
-                    />
+                        />
+                        <label className='text-lg font-semibold text-white italic' htmlFor="siteUser">user</label>
+                    </div>
                 </div>
-                <input className='btn btn-primary' type="submit" value="signUp" />
+                <input className='btn btn-info text-lg text-white w-full rounded-full' type="submit" value="signUp" />
             </form>
         </div>
     );

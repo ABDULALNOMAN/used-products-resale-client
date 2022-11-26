@@ -32,7 +32,6 @@ const Context = ({ children }) => {
     const LogOut = () => {
         return signOut(auth)
     }
-    console.log(users)
     const user ={loding,handleSignUp,users,LogOut,LogInUser,googleSignin,updateUser}
     return (
         <div>

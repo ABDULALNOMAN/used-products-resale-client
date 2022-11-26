@@ -2,6 +2,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Login from "../Page/Authentication/Login";
 import PrivetRoute from "../Page/Authentication/PrivetRoute";
 import Signup from "../Page/Authentication/Signup";
+import AddProducts from "../Page/Deshbord/AddProducts";
+import Deshbord from "../Page/Deshbord/Deshbord";
+import Myorders from "../Page/Deshbord/Myorders";
 import Home from "../Page/Home/Home";
 import Products from "../Page/Home/Products";
 import Main from "../Page/Layout/Main";
@@ -32,6 +35,20 @@ export const router = createBrowserRouter([
                 }
             }
 
+        ])
+    },
+    {
+        path: '/deshbord',
+        element: <Deshbord></Deshbord>,
+        children: ([
+            {
+                path: '/deshbord',
+                element:<Myorders></Myorders>
+            },
+            {
+                path: '/deshbord/addproducts',
+                element:<AddProducts></AddProducts>
+            }
         ])
     }
 ])

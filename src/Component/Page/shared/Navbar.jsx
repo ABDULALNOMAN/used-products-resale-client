@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
+import { GoThreeBars } from 'react-icons/go';
 
 const Navbar = () => {
     const { users, LogOut } = useContext(CallContext)
@@ -16,6 +17,7 @@ const Navbar = () => {
     }
     const Navbar = <>
         <li><Link to={'/'}>Item 1</Link></li>
+        <li><Link to='/deshbord'>deshbord</Link></li>
         {users?.email ? <li onClick={handleLogOut}><Link>signOut</Link></li> : <>
             <li><Link to='/login'>login</Link></li>
             <li><Link to='/signup'>signUp</Link></li>
@@ -26,6 +28,7 @@ const Navbar = () => {
             <div className="navbar container mx-auto ">
                 <div className="navbar-start">
                     <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <button><label htmlFor="my-drawer"><GoThreeBars/></label></button>
                 </div>
                 <div className="navbar-end">
                     <div className="hidden lg:flex">
