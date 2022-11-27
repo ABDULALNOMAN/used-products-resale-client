@@ -7,7 +7,7 @@ import Allbuyers from "../Page/Deshbord/Admin/Allbuyers";
 import Allseller from "../Page/Deshbord/Admin/Allseller";
 import Deshbord from "../Page/Deshbord/Deshbord";
 import Myorders from "../Page/Deshbord/Myorders";
-import Errorpage from "../Page/Errorpage";
+import Errorpage from "../Errorpage";
 import Home from "../Page/Home/Home";
 import Products from "../Page/Home/Products";
 import Main from "../Page/Layout/Main";
@@ -60,10 +60,6 @@ export const router = createBrowserRouter([
                 path:'/deshbord/allbuyers',
                 element:<Allbuyers></Allbuyers>
             },
-            {
-                path:'*',
-                element:<Errorpage></Errorpage>
-            }
         ])
     },
     {
