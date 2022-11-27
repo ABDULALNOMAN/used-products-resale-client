@@ -16,9 +16,12 @@ const Navbar = () => {
         })
     }
     const Navbar = <>
-        <li><Link to={'/'}>Item 1</Link></li>
-        <li><Link to='/deshbord'>deshbord</Link></li>
-        {users?.email ? <li onClick={handleLogOut}><Link>signOut</Link></li> : <>
+        <li><Link to={'/'}>home</Link></li>
+        <li><Link to={'/'}>blog</Link></li>
+        {users?.email ? <>
+            <li><Link to='/deshbord'>deshbord</Link></li>
+            <li onClick={handleLogOut}><Link>signOut</Link></li>
+        </> : <>
             <li><Link to='/login'>login</Link></li>
             <li><Link to='/signup'>signUp</Link></li>
         </>}

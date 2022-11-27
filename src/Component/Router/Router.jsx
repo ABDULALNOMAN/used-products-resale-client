@@ -11,6 +11,7 @@ import Errorpage from "../Errorpage";
 import Home from "../Page/Home/Home";
 import Products from "../Page/Home/Products";
 import Main from "../Page/Layout/Main";
+import Blog from "../Page/Blog/Blog";
 
 export const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
                     const data = fetch(`http://localhost:5000/category/${params.name}`)
                     return data
                 }
+            },
+            {
+                path:'/blog',
+                element:<Blog></Blog>
             }
 
         ])

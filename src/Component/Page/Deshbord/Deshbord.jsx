@@ -3,6 +3,7 @@ import React, { useContext, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
+import Footer from '../shared/Footer';
 import Navbar from '../shared/Navbar';
 
 
@@ -43,6 +44,7 @@ const Deshbord = () => {
                     </ul>
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
