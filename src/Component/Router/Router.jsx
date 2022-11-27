@@ -27,10 +27,10 @@ export const router = createBrowserRouter([
                 element:<Signup></Signup>
             },
             {
-                path:'/categroy/:id',
+                path:'/categroy/:name',
                 element:<PrivetRoute><Products></Products></PrivetRoute>,
                 loader: ({params}) => {
-                    const data = fetch(`http://localhost:5000/category/${params.id}`)
+                    const data = fetch(`http://localhost:5000/category/${params.name}`)
                     return data
                 }
             }

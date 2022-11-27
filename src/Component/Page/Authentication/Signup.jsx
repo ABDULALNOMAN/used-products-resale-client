@@ -8,6 +8,9 @@ const Signup = () => {
     const { handleSignUp, updateUser } = useContext(CallContext)
     const [info , setInfo] = useState({})
     const siteuser = useIndentify(info)
+    if (siteuser) {
+        
+    }
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         console.log(data)
@@ -17,13 +20,14 @@ const Signup = () => {
                 const user = result.user;
                 console.log(user)
                 updated(name)
-                if(data.siteUser === "seller"){
-                    const identify = {
-                        email:user.email,
-                        user:'seller'
-                    }
-                    setInfo(identify)
-                }
+                // if(data.siteUser === "seller"){
+                //     const identify = {
+                //         email:user.email,
+                //         user:'seller'
+                //     }
+                //     setInfo(identify)
+                // }
+                abdult(user.email, data.siteUser)
             })
         .catch((error) =>{
             console.log(error)
@@ -40,8 +44,16 @@ const Signup = () => {
             })
             .then(error => console.log(error))
     }
-    console.log(info)
     console.log(siteuser)
+    const abdult = (email , user) => {
+        if (user === "seller") { 
+            const identify = {
+                email,
+                user,
+            }
+            setInfo(identify)
+        }
+    }
     return (
         <div className=' max-w-md mx-auto px-4 py-10 my-10 rounded-md bg-sky-900 text-black'>
             <form onSubmit={handleSubmit(onSubmit)}>
