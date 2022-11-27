@@ -10,7 +10,6 @@ const Allseller = () => {
             return data
         }
     })
-    console.log(allseller)
     const handleDeleteUser = (email) => {
         fetch(`http://localhost:5000/userdelete?email=${email}`, {
             method:'DELETE'

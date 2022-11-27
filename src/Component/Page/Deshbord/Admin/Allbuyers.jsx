@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
 const Allbuyers = () => {
@@ -23,7 +24,7 @@ const Allbuyers = () => {
     }
     console.log(alluser)
     return (
-        <div>
+        <div className='container mx-auto'>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>

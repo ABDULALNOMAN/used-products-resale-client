@@ -38,7 +38,7 @@ const Deshbord = () => {
                             <li><Link>my wishlist</Link></li>
                         </>}
                         <li><Link to="/deshbord/allseler">All seller</Link></li>
-                        <li to="/deshbord/allbuyers"><Link>All Buyers</Link></li>
+                        <li><Link to='/deshbord/allbuyers'>All Buyers</Link></li>
                         <li><Link>Report item</Link></li>
                     </ul>
                 </div>
