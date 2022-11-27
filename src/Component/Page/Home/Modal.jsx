@@ -1,9 +1,11 @@
 import React, { useContext, } from 'react';
 import { CallContext } from '../../Context/Context';
 
-const Modal = ({ modalitem,setModalitem,handleModalForm,}) => {
+const Modal = ({ modalitem,setModalitem,handleModalForm,setItemId}) => {
     const {users}=useContext(CallContext)
-    const { name, resale,} = modalitem
+    const { name, resale,_id } = modalitem
+    console.log(modalitem)
+    setItemId(_id)
     return (
         <div className='px-4'>
             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
@@ -42,8 +44,8 @@ const Modal = ({ modalitem,setModalitem,handleModalForm,}) => {
                             />
                        </div>
                         <div className="modal-action">
-                            <button className='btn btn-info' onClick={()=>setModalitem(null)}>cancle</button>
-                            <button><label htmlFor="my-modal-6" className="btn">submit</label></button>
+                            <button className='btn bg-info text-gray-200 hover:bg-info border-none' onClick={()=>setModalitem(null)}>cancle</button>
+                            <button><label htmlFor="my-modal-6" className="btn bg-success hover:bg-success border-none text-gray-200">submit</label></button>
                         </div>
                     </form>
                 </div>

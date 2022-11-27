@@ -14,10 +14,13 @@ const Service = () => {
     })
     console.log(items)
     return (
-        <div className='grid grid-cols-3 gap-3'>
-            {
-                items.map(item =><ServicesItem key={item._id} item={item}></ServicesItem>)
-            }
+        <div className='container mx-auto my-10'>
+            <h2 className='text-3xl font-semibold text-center mb-6 uppercase'>category</h2>
+            <div className='grid grid-cols-3 gap-3'>
+                {
+                    items.map(item =><ServicesItem key={item._id} item={item}></ServicesItem>)
+                }
+            </div>
         </div>
     );
 };

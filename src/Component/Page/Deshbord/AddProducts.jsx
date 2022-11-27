@@ -30,9 +30,10 @@ const AddProducts = () => {
                         number:data.number,
                         description: data.text,
                         date: data.date,
-                        seller_email:users?.email
+                        seller_email: users?.email,
+                        status:'availlable'
                     }
-                    fetch('http://localhost:5000/productsadd',{
+                    fetch(`http://localhost:5000/productsadd?email=${users?.email}`,{
                         method:'POST',
                         headers:{
                             'content-type':'application/json'

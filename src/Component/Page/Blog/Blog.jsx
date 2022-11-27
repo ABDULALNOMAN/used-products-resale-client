@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <div>
+        <div className='container mx-auto'>
             <h1>What are the different ways to manage a state in a React application?</h1>
             <div>
                 <h4>there are 4 different ways to manage a state in a React application</h4>

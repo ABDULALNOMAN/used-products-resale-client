@@ -11,6 +11,7 @@ const Products = () => {
     const { users } = useContext(CallContext)
     const datas = useLoaderData()
     const [modalitem, setModalitem] = useState(null)
+    const [itemId,setItemId]=useState('')
     const handleModalForm = event => {
         event.preventDefault()
         const form = event.target;
@@ -25,18 +26,17 @@ const Products = () => {
             price:price,
             number:number,
             location: location,
-            status:"booked"
         }
         console.log(products)
-        fetch(`http://localhost:5000/bookitem`,{
-            method:'POST',
+        fetch(`http://localhost:5000/bookitem?id=${itemId}`,{
+            method:'PUT',
             headers:{
                 'content-type':'application/json'
             },
             body:JSON.stringify(products)
             })
                 .then(res => res.json())
-            .then(data => {
+                .then(data => {
                 console.log(data)
             })
     } 
@@ -51,6 +51,7 @@ const Products = () => {
                 setModalitem={setModalitem}
                 handleModalForm={handleModalForm}
                 modalitem={modalitem}
+                setItemId={setItemId}
             ></Modal>}
         </div>
     );

@@ -12,6 +12,10 @@ import Home from "../Page/Home/Home";
 import Products from "../Page/Home/Products";
 import Main from "../Page/Layout/Main";
 import Blog from "../Page/Blog/Blog";
+import Privetbuyes from "../Page/Authentication/Privetbuyes";
+import Privetseller from "../Page/Authentication/Privetseller";
+import Mydesh from "../Page/Deshbord/Mydesh";
+import Myproducts from "../Page/Deshbord/Myproducts";
 
 export const router = createBrowserRouter([
     {
@@ -19,7 +23,7 @@ export const router = createBrowserRouter([
         element: <Main></Main>,
         children: ([
             {
-                path: '/',
+                path:'/',
                 element:<Home></Home>
             },
             {
@@ -41,7 +45,7 @@ export const router = createBrowserRouter([
             {
                 path:'/blog',
                 element:<Blog></Blog>
-            }
+            },
 
         ])
     },
@@ -51,11 +55,19 @@ export const router = createBrowserRouter([
         children: ([
             {
                 path: '/deshbord',
-                element:<Myorders></Myorders>
+                element:<Mydesh></Mydesh>
+            },
+            {
+                path: '/deshbord/myorders',
+                element:<Privetbuyes><Myorders></Myorders></Privetbuyes>
             },
             {
                 path: '/deshbord/addproducts',
-                element:<AddProducts></AddProducts>
+                element:<Privetseller><AddProducts></AddProducts></Privetseller>
+            },
+            {
+                path: '/deshbord/myproducts',
+                element:<Myproducts></Myproducts>
             },
             {
                 path:'/deshbord/allseler',

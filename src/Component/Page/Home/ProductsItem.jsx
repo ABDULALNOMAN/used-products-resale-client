@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Productsitem = ({ data,setModalitem }) => {
-    const { image, location, name, originl, resale, sellerName, use, _id } = data
-    setModalitem(data)
+    const { image, location, name, originl, resale, sellerName, use, status } = data
+    console.log(data)
     return (
         <div className='h-full'>
             <div className=" bg-base-100 shadow-xl flex justify-evenly  h-full w-full rounded-md">
@@ -16,7 +16,7 @@ const Productsitem = ({ data,setModalitem }) => {
                     <p>use: {use} yrs</p>
                     <p>location: {location}</p>
                     <p>seller Name: {sellerName}</p>
-                    <label htmlFor="my-modal-6" className="btn btn-primary rounded-full">Book now</label>
+                    <label disabled={status=='booked'} onClick={()=>setModalitem (data)} htmlFor="my-modal-6" className="btn bg-info hover:bg-info rounded-full border-none text-gray-200">Book now</label>
                 </div>
             </div>
         </div>

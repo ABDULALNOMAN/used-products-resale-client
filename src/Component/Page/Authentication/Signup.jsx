@@ -1,26 +1,27 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import useIndentify from '../../custom/useIndentify';
 
 
 const Signup = () => {
     const { handleSignUp, updateUser } = useContext(CallContext)
-    const [info , setInfo] = useState({})
+    const [info, setInfo] = useState({})
+    const navigate = useNavigate()
     const siteuser = useIndentify(info)
-    if (siteuser) {
-        
+    if (siteuser.acknowledged) {
+        navigate('/')
     }
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
-        console.log(data)
         const name = data.first +''+ data.lest
         handleSignUp(data.email, data.password)
             .then(result => {
                 const user = result.user;
                 console.log(user)
                 updated(name)
-                abdult(user.email, data.siteUser)
+                abdult(user.email, data.siteUser)     
             })
         .catch((error) =>{
             console.log(error)
@@ -31,13 +32,11 @@ const Signup = () => {
             displayName: name,
         }
         updateUser(updateInfo)
-            .then(result => {
-            const user = result.user;
-            console.log(user)
+            .then((result) =>{
+                const user =result.user
             })
             .then(error => console.log(error))
     }
-    console.log(siteuser)
     const abdult = (email , user) => { 
         const identify = {
             email,

@@ -16,21 +16,22 @@ const Navbar = () => {
         })
     }
     const Navbar = <>
-        <li><Link to={'/'}>home</Link></li>
-        <li><Link to={'/'}>blog</Link></li>
+        <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/'}>home</Link></li>
+        <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/blog'}>blog</Link></li>
+        <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/check'}>check</Link></li>
         {users?.email ? <>
-            <li><Link to='/deshbord'>deshbord</Link></li>
-            <li onClick={handleLogOut}><Link>signOut</Link></li>
+            <li className='font-semibold italic text-lg hover:text-sky-700'><Link to='/deshbord'>deshbord</Link></li>
+            <li className='font-semibold italic text-lg hover:text-sky-700' onClick={handleLogOut}><Link>signOut</Link></li>
         </> : <>
-            <li><Link to='/login'>login</Link></li>
-            <li><Link to='/signup'>signUp</Link></li>
+            <li className='font-semibold italic text-lg hover:text-sky-700'><Link to='/login'>login</Link></li>
+            <li className='font-semibold italic text-lg hover:text-sky-700'><Link to='/signup'>signUp</Link></li>
         </>}
     </>
     return (
-        <div className='bg-base-100 relative'>
+        <div className='bg-secondary relative'>
             <div className="navbar container mx-auto ">
                 <div className="navbar-start">
-                    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                    <a className="btn btn-ghost  text-xl uppercase italic">gsmarea</a>
                     <button><label htmlFor="my-drawer"><GoThreeBars/></label></button>
                 </div>
                 <div className="navbar-end">
