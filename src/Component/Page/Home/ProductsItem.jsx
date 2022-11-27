@@ -1,7 +1,7 @@
 import React from 'react';
 
 const Productsitem = ({ data,setModalitem }) => {
-    const { image, location, name, originl, resale, sellerName, use } = data
+    const { image, location, name, originl, resale, sellerName, use, _id } = data
     setModalitem(data)
     return (
         <div className='h-full'>

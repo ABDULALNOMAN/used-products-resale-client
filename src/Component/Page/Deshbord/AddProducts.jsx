@@ -1,11 +1,10 @@
 import React, { useContext, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { isRouteErrorResponse } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 
 const AddProducts = () => {
-    const {users} = useContext(CallContext)
+    const { users } = useContext(CallContext)
     const { register, handleSubmit } = useForm()
     const formSubmit = data => {
         const formData = new FormData()
@@ -30,10 +29,11 @@ const AddProducts = () => {
                         product_type:data.select,
                         number:data.number,
                         description: data.text,
-                        date:data.date
+                        date: data.date,
+                        seller_email:users?.email
                     }
                     fetch('http://localhost:5000/productsadd',{
-                        method: 'POST',
+                        method:'POST',
                         headers:{
                             'content-type':'application/json'
                         },

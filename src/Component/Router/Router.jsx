@@ -3,6 +3,8 @@ import Login from "../Page/Authentication/Login";
 import PrivetRoute from "../Page/Authentication/PrivetRoute";
 import Signup from "../Page/Authentication/Signup";
 import AddProducts from "../Page/Deshbord/AddProducts";
+import Allbuyers from "../Page/Deshbord/Admin/Allbuyers";
+import Allseller from "../Page/Deshbord/Admin/Allseller";
 import Deshbord from "../Page/Deshbord/Deshbord";
 import Myorders from "../Page/Deshbord/Myorders";
 import Home from "../Page/Home/Home";
@@ -48,6 +50,14 @@ export const router = createBrowserRouter([
             {
                 path: '/deshbord/addproducts',
                 element:<AddProducts></AddProducts>
+            },
+            {
+                path: '/deshbord/allseler',
+                element:<Allseller></Allseller>
+            },
+            {
+                path: '/deshbord/allbuyers',
+                element:<Allbuyers></Allbuyers>
             }
         ])
     }

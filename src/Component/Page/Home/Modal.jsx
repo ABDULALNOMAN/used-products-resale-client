@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { useContext, } from 'react';
 import { CallContext } from '../../Context/Context';
 
-const Modal = ({ modalitem,setModalitem,handleModalForm }) => {
+const Modal = ({ modalitem,setModalitem,handleModalForm,}) => {
     const {users}=useContext(CallContext)
-    const { name, resale } = modalitem
+    const { name, resale,} = modalitem
     return (
         <div className='px-4'>
             <input type="checkbox" id="my-modal-6" className="modal-toggle" />
@@ -21,7 +21,7 @@ const Modal = ({ modalitem,setModalitem,handleModalForm }) => {
                                 defaultValue={name}
                                 disabled type="text" placeholder="Type here"
                                 className="input input-bordered w-full"
-                                name="itemname"
+                                name="itemName"
                             />
                             <input
                                 defaultValue={resale}

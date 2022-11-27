@@ -1,15 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
+import useIndentify from '../../custom/useIndentify';
 
 const Login = () => {
-    const {LogInUser,googleSignin} = useContext(CallContext)
+    const { LogInUser, googleSignin } = useContext(CallContext)
     const { register, handleSubmit } = useForm()
     const location = useLocation()
     const navigate = useNavigate()
     const from = location?.state?.from?.pathname || '/'
+    const [info , setInfo] = useState({})
+    const siteuser = useIndentify(info)
+    if (siteuser.acknowledged) {
+        navigate(from, { replace: true })
+    }
     const handlelogIn = (data) => {
         console.log(data)
         LogInUser(data.email, data.password)
@@ -29,8 +35,12 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user)
-                navigate(from, { replace: true })
                 toast.success('login successfuly')
+                const information = {
+                    email:user.email,
+                    user:'user'
+                }
+                setInfo(information)    
             })
             .catch(error => {
                 console.log(error)

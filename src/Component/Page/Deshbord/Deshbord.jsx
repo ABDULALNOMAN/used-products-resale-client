@@ -29,7 +29,7 @@ const Deshbord = () => {
                     <label htmlFor="my-drawer" className="drawer-overlay"></label>
                     <ul className="menu p-4 w-52 bg-base-100 text-base-content">
                     {/* <!-- Sidebar content here --> */}
-                        {existing?.email ? <>
+                        {existing?.user=="seller" ? <>
                             <li><Link to={'/deshbord/addproducts'}>Add a products</Link></li>
                             <li><Link>My products</Link></li>
                             <li><Link>My buyers</Link></li>
@@ -37,8 +37,8 @@ const Deshbord = () => {
                             <li><Link to='/deshbord'>my orders</Link></li>
                             <li><Link>my wishlist</Link></li>
                         </>}
-                        <li><Link>All seller</Link></li>
-                        <li><Link>All Buyers</Link></li>
+                        <li><Link to="/deshbord/allseler">All seller</Link></li>
+                        <li to="/deshbord/allbuyers"><Link>All Buyers</Link></li>
                         <li><Link>Report item</Link></li>
                     </ul>
                 </div>
