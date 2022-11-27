@@ -30,7 +30,22 @@ const Blog = () => {
             <div>
                 <h1> What is a unit test? Why should we write unit tests?</h1>
                 <div>
-                    
+                    <h4>A unit test is a way of testing a unit - the smallest piece of code that can be logically isolated in a system</h4>
+                    <p>Unit tests provide a fundamental check that an application meets its software design specifications and behaves as intended</p>
+                </div>
+            </div>
+            <div>
+                <h1>React vs. Angular vs. Vue?</h1>
+                <div>
+                    <h4>Angular</h4>
+                    <p>In Angular, components are referred to as directives. Directives are just markers on DOM elements, which Angular can track and attach specific behavior too. Therefore, Angular separates the UI part of components as attributes of HTML tags, and their behaviors in the form of JavaScript code. This is what sets it apart when looking at Angular vs React.</p>
+                </div>
+                <div>
+                    <h4>React</h4>
+                    <p>React, interestingly, combines the UI and behavior of components. For instance, here is the code to create a hello world component in React. In React, the same part of the code is responsible for creating a UI element and dictating its behavior.</p>
+                </div>
+                <div>
+                    h4
                 </div>
             </div>
         </div>
