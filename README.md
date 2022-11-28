@@ -1,4 +1,8 @@
 # live site link: https://gsmarea-45afe.firebaseapp.com/
+
+## admin email: nomanmd1st500@gmail.com
+## admin password :noman1
+
 ### my project's features and functionalities
 #### unwanted situation is avoided dwe to authentication system 
 #### because of the privet route no one excent certain people can see it
