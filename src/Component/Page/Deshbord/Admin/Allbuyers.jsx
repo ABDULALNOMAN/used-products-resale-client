@@ -5,13 +5,13 @@ const Allbuyers = () => {
     const { data:alluser=[],refetch } = useQuery({
         queryKey:['allseller'],
         queryFn: async() => {
-            const res =await fetch('http://localhost:5000/alluser')
+            const res =await fetch('https://gsm-area-server.vercel.app/alluser')
             const data = res.json()
             return data
         }
     })
     const handleDeleteUser = (email) => {
-        fetch(`http://localhost:5000/userdelete?email=${email}`, {
+        fetch(`https://gsm-area-server.vercel.app/userdelete?email=${email}`, {
             method:'DELETE'
         })
             .then(res => res.json())

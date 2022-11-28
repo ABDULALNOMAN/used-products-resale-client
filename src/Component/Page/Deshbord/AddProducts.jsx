@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { CallContext } from '../../Context/Context';
@@ -33,7 +33,7 @@ const AddProducts = () => {
                         seller_email: users?.email,
                         status:'availlable'
                     }
-                    fetch(`http://localhost:5000/productsadd?email=${users?.email}`,{
+                    fetch(`https://gsm-area-server.vercel.app/productsadd?email=${users?.email}`,{
                         method:'POST',
                         headers:{
                             'content-type':'application/json'

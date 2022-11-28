@@ -9,7 +9,7 @@ const Adminroute = ({children}) => {
     const { data={} } = useQuery({
         queryKey:[users],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/admincheck?admin=${users?.email}`)
+            const res =await fetch(`https://gsm-area-server.vercel.app/admincheck?admin=${users?.email}`)
             const data = res.json()
             return data
         }

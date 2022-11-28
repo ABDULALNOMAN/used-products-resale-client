@@ -1,48 +1,30 @@
 import React from 'react';
+import bannerimg from '../../../assets/smartphone.14bb354-removebg-preview (1).png'
 
 const Banner = () => {
-    const serial = <div
-        className="flex justify-center w-full py-2 gap-2 absolute bottom-0 bg-red-600">
-            <a href="#item1" className="btn btn-xs">1</a> 
-            <a href="#item2" className="btn btn-xs">2</a> 
-            <a href="#item3" className="btn btn-xs">3</a> 
-            <a href="#item4" className="btn btn-xs">4</a>
-        </div>
+    
     return (
-        <div className='relative'>
-            <div className="carousel w-full h-[80vh]">
-                <div id="item1" className="carousel-item  w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" />
-                    {/* <div>
-                        {serial}
-                    </div> */}
-                </div> 
-                <div id="item2" className="carousel-item  w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" />
-                    {/* <div>
-                        {serial}
-                    </div> */}
-                </div> 
-                <div id="item3" className="carousel-item  w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" />
-                    {/* <div>
-                        {serial}
-                    </div> */}
-                </div> 
-                <div id="item4" className="carousel-item w-full">
-                    <img src="https://placeimg.com/800/200/arch" className="w-full" />
-                    {/* <div>
-                        {serial}
-                    </div> */}
+        <div className='bg-info'>
+            <div className=' container mx-auto'>
+                <div className='w-full h-[80vh] flex lg:flex-row flex-col justify-around items-center '>
+                    <div className='lg:w-1/2 w-full '>
+                        <h1 className='font-bold lg:text-6xl md:text-5xl text-5xl lg:mx-0 mx-3 lg:text-left text-center text-gray-200'>sell you smart phone gsmarea and quick cash</h1>
+                        <div className="form-control lg:block hidden mt-4">
+                            <div className="input-group ">
+                                <input type="text" placeholder="Search…" className="input input-bordered" />
+                                <button className="btn btn-square bg-secondary hover:bg-secondary">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='w-1/2 lg:block hidden'>
+                        <img className='' src={bannerimg} alt="" />
+                    </div>
                 </div>
-            </div> 
-            <div className="flex justify-center w-full py-2 gap-2 absolute bottom-0">
-                <a href="#item1" className="btn btn-xs">1</a> 
-                <a href="#item2" className="btn btn-xs">2</a> 
-                <a href="#item3" className="btn btn-xs">3</a> 
-                <a href="#item4" className="btn btn-xs">4</a>
             </div>
         </div>
+            
     );
 };
 

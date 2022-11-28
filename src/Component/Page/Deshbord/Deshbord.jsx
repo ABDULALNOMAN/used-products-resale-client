@@ -1,9 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
-import Loding from '../other/Loding';
 import Footer from '../shared/Footer';
 import Navbar from '../shared/Navbar';
 
@@ -15,7 +13,7 @@ const Deshbord = () => {
     const { data:existing={}} = useQuery({
         queryKey:[users],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/users?email=${users?.email}`)
+            const res = await fetch(`https://gsm-area-server.vercel.app/users?email=${users?.email}`)
             const data = res.json()
             return data
         }

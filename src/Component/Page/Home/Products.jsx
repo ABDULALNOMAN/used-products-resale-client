@@ -1,7 +1,4 @@
-import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect, useState } from 'react';
-import { useFormContext } from 'react-hook-form';
-import { toast } from 'react-hot-toast';
+import React, { useContext, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import Modal from './Modal';
@@ -28,7 +25,7 @@ const Products = () => {
             location: location,
         }
         console.log(products)
-        fetch(`http://localhost:5000/bookitem?id=${itemId}`,{
+        fetch(`https://gsm-area-server.vercel.app/bookitem?id=${itemId}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

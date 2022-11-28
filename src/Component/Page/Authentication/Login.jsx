@@ -69,8 +69,6 @@ const Login = () => {
             </form>
             <div className='flex justify-evenly items-center w-96 mx-auto'>
                 <button onClick={handleGoogleSignIn} className='btn btn-primary'>google</button>
-                <button className='btn btn-primary'>facebppl</button>
-                <button className='btn btn-primary'>gisthub</button>
             </div>
         </div>
     );

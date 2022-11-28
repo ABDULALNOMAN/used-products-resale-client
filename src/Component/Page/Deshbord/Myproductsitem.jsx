@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Myproductsitem = ({ product,handleProductDelete }) => {
@@ -38,7 +38,7 @@ const Myproductsitem = ({ product,handleProductDelete }) => {
                 seller_email:product.seller_email,
                 status:product.status
             }
-        fetch('http://localhost:5000/advertize',{
+        fetch('https://gsm-area-server.vercel.app/advertize',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

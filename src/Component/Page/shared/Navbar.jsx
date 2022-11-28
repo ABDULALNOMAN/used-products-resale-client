@@ -18,7 +18,6 @@ const Navbar = () => {
     const Navbar = <>
         <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/'}>home</Link></li>
         <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/blog'}>blog</Link></li>
-        <li className='font-semibold italic text-lg hover:text-sky-700'><Link to={'/check'}>check</Link></li>
         {users?.email ? <>
             <li className='font-semibold italic text-lg hover:text-sky-700'><Link to='/deshbord'>deshbord</Link></li>
             <li className='font-semibold italic text-lg hover:text-sky-700' onClick={handleLogOut}><Link>signOut</Link></li>

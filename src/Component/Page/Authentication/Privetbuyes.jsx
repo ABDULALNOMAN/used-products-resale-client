@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, } from 'react';
+import React, { useContext } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import Loding from '../other/Loding';
@@ -11,7 +11,7 @@ const Privetbuyes = ({children}) => {
     const { data } = useQuery({
         queryKey: [users],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/buyersCheck?buyer=${users?.email}`)
+            const res =await fetch(`https://gsm-area-server.vercel.app/buyersCheck?buyer=${users?.email}`)
             const data = res.json()
             return data
         }
