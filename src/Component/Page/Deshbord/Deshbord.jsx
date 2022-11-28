@@ -41,7 +41,7 @@ const Deshbord = () => {
                         {/* <!-- Sidebar content here --> */}
                         {users && existing?.user === "seller" ? <>
                             <li><Link to={'/deshbord/addproducts'}>Add a products</Link></li>
-                            <li><Link>My products</Link></li>
+                            <li><Link to={'/deshbord/myproducts'}>My products</Link></li>
                             <li><Link>My buyers</Link></li>
                         </>:<></>}
                         {users && existing?.user==='user'?<>
