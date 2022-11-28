@@ -42,7 +42,7 @@ const Products = () => {
     } 
     return (
         <div className='my-10'>
-            <div className='grid grid-cols-2 gap-4 container mx-auto'>
+            <div className='grid lg:grid-cols-2 gap-4 container mx-auto'>
                 {
                     datas.map(data=><Productsitem key={data._id} setModalitem={setModalitem} data={data}></Productsitem>)
                  }

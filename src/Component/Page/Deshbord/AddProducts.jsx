@@ -49,43 +49,38 @@ const AddProducts = () => {
                         })
                 }
             })
-        // "categoryId":"637fa8ffe3fcb9522fac6925",
-        //     "image": "https://www.gsmarena.com/apple_iphone_4s-4212.php",
-        //     "name": "iphone 4s",
-        //     "location": "sylet",
-        //     "resale": 30000,
-        //     "originl": 8000,
-        //     "use": 2,
     }
     return (
-        <div className='container mx-auto'> 
-            <form onSubmit={handleSubmit(formSubmit)} className='grid grid-cols-1 gap-3 max-w-md mx-auto'>
-                <div className='grid grid-cols-2 gap-2'>
-                    <input {...register('product')} type='text' placeholder='enter a product name' name='product' id="" className='input' input-bordered />
-                    <input {...register('price')} type="number" placeholder='enter price' name="price" id="" className="input" input-bordered/>
-                </div>
-                <input {...register('number')} type="number" placeholder='enter a number' name="number" id="" className="input" input-bordered />
-                <input type="file" {...register('image')} className="file-input file-input-bordered w-full" />
-                <select {...register('select')} className="select" select-bordered w-full>
-                <option selected>good</option>
-                <option>excellent</option>
-                <option>fair</option>
-                </select>
-                <div className='grid grid-cols-2 gap-3'>
-                    <input {...register('location')} type="text" placeholder='location' name="location" id="" className="input" input-bordered />
-                    <input {...register('category')} type="text" placeholder='category' name="category" id="" className="input" input-bordered />
-                </div>
-                <div className='grid grid-cols-2 gap-3'>
-                    <input {...register('original')} type="number" placeholder='original price' name="original" id="" className="input" input-bordered />
-                    <input {...register('use')} type="number" placeholder='use' name="use" id="" className="input" input-bordered />
-                </div>
-                <input {...register('date')} type="date" className='input input-bordered' name="date" id="" />
-                <input {...register('seller')} type="text"
-                placeholder='seller name' className='input input-bordered' name="seller" id="" />
-                <textarea {...register('text')} 
-                name="text" className="textarea" textarea-bordered placeholder="Bio"></textarea>
-                <button className='btn btn-info'>submit</button>
-            </form>
+        <div className='container mx-auto my-8'> 
+            <div className='p-4 border-4 bg-secondary rounded-lg'>
+                <form onSubmit={handleSubmit(formSubmit)} className='grid grid-cols-1 gap-3 max-w-md mx-auto'>
+                    <div className='grid grid-cols-2 gap-2'>
+                        <input {...register('product')} type='text' placeholder='enter a product name' name='product' id="" className='input' input-bordered />
+                        <input {...register('price')} type="number" placeholder='enter price' name="price" id="" className="input" input-bordered/>
+                    </div>
+                    <input {...register('number')} type="number" placeholder='enter a number' name="number" id="" className="input" input-bordered />
+                    <input type="file" {...register('image')} className="file-input file-input-bordered w-full" />
+                    <select {...register('select')} className="select" select-bordered w-full>
+                    <option selected>good</option>
+                    <option>excellent</option>
+                    <option>fair</option>
+                    </select>
+                    <div className='grid grid-cols-2 gap-3'>
+                        <input {...register('location')} type="text" placeholder='location' name="location" id="" className="input" input-bordered />
+                        <input {...register('category')} type="text" placeholder='category' name="category" id="" className="input" input-bordered />
+                    </div>
+                    <div className='grid grid-cols-2 gap-3'>
+                        <input {...register('original')} type="number" placeholder='original price' name="original" id="" className="input" input-bordered />
+                        <input {...register('use')} type="number" placeholder='use' name="use" id="" className="input" input-bordered />
+                    </div>
+                    <input {...register('date')} type="date" className='input input-bordered' name="date" id="" />
+                    <input {...register('seller')} type="text"
+                    placeholder='seller name' className='input input-bordered' name="seller" id="" />
+                    <textarea {...register('text')} 
+                    name="text" className="textarea" textarea-bordered placeholder="Bio"></textarea>
+                    <button className='btn btn-info'>submit</button>
+                </form>
+            </div>
         </div>
     );
 };

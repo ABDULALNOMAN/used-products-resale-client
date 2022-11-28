@@ -14,7 +14,6 @@ import Main from "../Page/Layout/Main";
 import Blog from "../Page/Blog/Blog";
 import Privetbuyes from "../Page/Authentication/Privetbuyes";
 import Privetseller from "../Page/Authentication/Privetseller";
-import Mydesh from "../Page/Deshbord/Mydesh";
 import Myproducts from "../Page/Deshbord/Myproducts";
 import Adminroute from "../Page/Deshbord/Admin/Adminroute";
 

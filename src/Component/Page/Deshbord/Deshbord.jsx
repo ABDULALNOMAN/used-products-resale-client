@@ -20,13 +20,6 @@ const Deshbord = () => {
             return data
         }
     })
-    // fetch(`http://localhost:5000/users?email=${users?.email}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         console.log(data)
-    //         setd(data)
-    //     })
-     console.log(existing)
     return (
         <div>
             <Navbar></Navbar>

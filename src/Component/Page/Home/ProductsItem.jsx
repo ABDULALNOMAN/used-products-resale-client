@@ -5,7 +5,7 @@ const Productsitem = ({ data,setModalitem }) => {
     console.log(data)
     return (
         <div className='h-full'>
-            <div className=" bg-base-100 shadow-xl flex justify-evenly  h-full w-full rounded-md">
+            <div className=" bg-gray-700 shadow-xl flex justify-evenly  h-full w-full rounded-md">
                 <div className=' w-1/2'>
                     <figure className='h-full'><img className='w-full h-full rounded-md' src={image} alt="Movie"/></figure>
                 </div>
