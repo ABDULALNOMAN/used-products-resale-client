@@ -48,9 +48,11 @@ const Deshbord = () => {
                             <li><Link to='/deshbord/myorders'>my orders</Link></li>
                             <li><Link>my wishlist</Link></li>
                         </>:<></>}
-                        <li><Link to="/deshbord/allseler">All seller</Link></li>
-                        <li><Link to='/deshbord/allbuyers'>All Buyers</Link></li>
-                        <li><Link>Report item</Link></li>
+                        {users && existing?.user == 'admin' ? <>
+                            <li><Link to="/deshbord/allseler">All seller</Link></li>
+                            <li><Link to='/deshbord/allbuyers'>All Buyers</Link></li>
+                            <li><Link>Report item</Link></li>
+                        </> : <></>}
                     </ul>
                 </div>
             </div>

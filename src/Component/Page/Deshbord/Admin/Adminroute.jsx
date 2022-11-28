@@ -1,21 +1,21 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { Navigate, useLocation } from 'react-router-dom';
-import { CallContext } from '../../Context/Context';
-import Loding from '../other/Loding';
+import { Navigate } from 'react-router-dom';
+import { CallContext } from '../../../Context/Context';
+import Loding from '../../other/Loding';
 
-const Privetseller = ({children}) => {
+const Adminroute = ({children}) => {
     const { loding, users } = useContext(CallContext)
-    const { data } = useQuery({
-        queryKey: [users],
+    const { data={} } = useQuery({
+        queryKey:[users],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/sellerCheck?seller=${users?.email}`)
+            const res =await fetch(`http://localhost:5000/admincheck?admin=${users?.email}`)
             const data = res.json()
             return data
         }
     })
     console.log(data)
-    if (loding) {
+    if(loding) {
         return <Loding></Loding>
     }
     if (users && data && data.user) {
@@ -24,4 +24,4 @@ const Privetseller = ({children}) => {
     return <Navigate to={'/login'}></Navigate>
 };
 
-export default Privetseller;
+export default Adminroute;

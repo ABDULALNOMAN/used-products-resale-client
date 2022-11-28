@@ -16,6 +16,7 @@ import Privetbuyes from "../Page/Authentication/Privetbuyes";
 import Privetseller from "../Page/Authentication/Privetseller";
 import Mydesh from "../Page/Deshbord/Mydesh";
 import Myproducts from "../Page/Deshbord/Myproducts";
+import Adminroute from "../Page/Deshbord/Admin/Adminroute";
 
 export const router = createBrowserRouter([
     {
@@ -54,10 +55,6 @@ export const router = createBrowserRouter([
         element: <Deshbord></Deshbord>,
         children: ([
             {
-                path: '/deshbord',
-                element:<Mydesh></Mydesh>
-            },
-            {
                 path: '/deshbord/myorders',
                 element:<Privetbuyes><Myorders></Myorders></Privetbuyes>
             },
@@ -71,11 +68,11 @@ export const router = createBrowserRouter([
             },
             {
                 path:'/deshbord/allseler',
-                element:<Allseller></Allseller>
+                element:<Adminroute><Allseller></Allseller></Adminroute>
             },
             {
                 path:'/deshbord/allbuyers',
-                element:<Allbuyers></Allbuyers>
+                element:<Adminroute><Allbuyers></Allbuyers></Adminroute>
             },
         ])
     },

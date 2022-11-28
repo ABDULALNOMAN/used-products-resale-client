@@ -22,6 +22,7 @@ const Allseller = () => {
                 }
             })
     }
+    console.log(allseller)
     return (
         <div className='container mx-auto'>
             <div className="overflow-x-auto">

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import useIndentify from '../../custom/useIndentify';
@@ -12,6 +13,7 @@ const Signup = () => {
     const siteuser = useIndentify(info)
     if (siteuser.acknowledged) {
         navigate('/')
+        toast.success('signup succesfully')
     }
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {

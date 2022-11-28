@@ -1,30 +1,32 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { CallContext } from '../../Context/Context';
+import Myproductsitem from './Myproductsitem';
 
 const Myproducts = () => {
     const { users } = useContext(CallContext)
-    console.log(users)
-    // const { data,isLoading } = useQuery({
-    //     querykey: [users],
-    //     queryFn: async() => {
-    //         const res = await fetch(`http://localhost:5000/myproducts?email=${users?.email}`)
-    //         const data = res.json();
-    //         return data
-    //     }
-    // })
-    // if (isLoading) {
-    //     return <p>div</p>
-    // }
+    const [productsData,setProductData]=useState([])
     useEffect(() => {
         fetch(`http://localhost:5000/myproducts?email=${users?.email}`)
             .then(res => res.json())
-        .then(data=>console.log(data))
+            .then(data => {
+                console.log(data)
+                if (data.length > 0) {
+                    setProductData(data)    
+                }
+            })
     }, [users])
     
     return (
-        <div>
-            hello
+        <div className='container mx-auto my-10'>
+            <div className='grid grid-cols-2 gap-3'>
+                {
+                   productsData.length && productsData.map(product => <Myproductsitem
+                        key={product._id}
+                        product={product}
+                    ></Myproductsitem>)
+                }
+            </div>
         </div>
     );
 };
