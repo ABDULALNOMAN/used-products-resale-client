@@ -5,26 +5,23 @@ import { CallContext } from '../../Context/Context';
 import Loding from '../other/Loding';
 
 const Privetbuyes = ({children}) => {
-    
-    const location = useLocation()
     const { loding, users } = useContext(CallContext)
-    const { data } = useQuery({
-        queryKey: [users],
+     const location = useLocation()
+    const { data, isLoading } = useQuery({
+        queryKey: ["buyersCheck",users?.email],
         queryFn: async () => {
-            const res =await fetch(`https://gsm-area-server.vercel.app/buyersCheck?buyer=${users?.email}`)
-            const data = res.json()
+            const res =await fetch(`http://localhost:5000/buyersCheck?buyer=${users?.email}`)
+            const data = await res.json()
             return data
         }
     })
-    console.log(data)
-    
-    if (loding) {
+    if (loding || isLoading) {
         return <Loding></Loding>
     }
-    if(users && data && data.user){
+    if(users && data && data?.visitor){
         return children
     }
-    return <Navigate to={'/login'}></Navigate>
+    return <Navigate to={'/login'} state={{from:location}} replace></Navigate>
 };
 
 export default Privetbuyes;

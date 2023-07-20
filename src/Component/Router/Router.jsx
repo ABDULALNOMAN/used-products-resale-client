@@ -16,6 +16,7 @@ import Myproducts from "../Page/Deshbord/Myproducts";
 import Home from "../Page/Home/Home";
 import Products from "../Page/Home/Products";
 import Main from "../Page/Layout/Main";
+import Loding from "../Page/other/Loding";
 
 export const router = createBrowserRouter([
     {
@@ -38,13 +39,17 @@ export const router = createBrowserRouter([
                 path:'/categroy/:name',
                 element:<PrivetRoute><Products></Products></PrivetRoute>,
                 loader: ({params}) => {
-                    const data = fetch(`https://gsm-area-server.vercel.app/category/${params.name}`)
+                    const data = fetch(`http://localhost:5000/category/${params.name}`)
                     return data
                 }
             },
             {
                 path:'/blog',
                 element:<Blog></Blog>
+            },
+            {
+                path: '/loding',
+                element:<Loding></Loding>
             },
 
         ])

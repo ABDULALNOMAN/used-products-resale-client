@@ -1,7 +1,6 @@
 import React from 'react';
 
 const Advetiseditem = ({item }) => {
-    console.log(item)
     const {categroy, date ,description , image,location, name,number,originl,product_type,resale,sellerName,seller_email,use}=item
     return (
         <div>

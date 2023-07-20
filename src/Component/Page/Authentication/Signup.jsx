@@ -9,42 +9,38 @@ import useIndentify from '../../custom/useIndentify';
 const Signup = () => {
     const { handleSignUp, updateUser } = useContext(CallContext)
     const [info, setInfo] = useState({})
-    const navigate = useNavigate()
     const siteuser = useIndentify(info)
-    if (siteuser.acknowledged) {
-        navigate('/')
-        toast.success('signup succesfully')
-    }
+    const navigate = useNavigate()
+    siteuser?.acknowledged && toast.success("signup successfully") && navigate("/")
+
+    // useForm fucntion
     const { register, handleSubmit } = useForm()
     const onSubmit = (data) => {
         const name = data.first +''+ data.lest
-        handleSignUp(data.email, data.password)
+        const visitor = data?.siteUser ? data?.siteUser : "user" ;
+        handleSignUp(data?.email, data?.password)
             .then(result => {
-                const user = result.user;
-                console.log(user)
-                updated(name)
-                abdult(user.email, data.siteUser)     
+                if(result?.user?.uid){
+                    updated(name)
+                    abdultFunc(result?.user?.email, visitor)
+                }
             })
-        .catch((error) =>{
-            console.log(error)
-        })
+            .catch((error) =>{
+                const errMess = error?.message?.split("/")[1].split(")")[0]
+                toast.error(errMess)
+            })
     }
+
+    // function call by useForm
     const updated = (name) => {
-        const updateInfo = {
-            displayName: name,
-        }
-        updateUser(updateInfo)
-            .then((result) =>{
-                const user =result.user
-            })
-            .then(error => console.log(error))
+        updateUser({displayName:name})
+            .then(() =>{})
+            .catch((e)=>{})
     }
-    const abdult = (email , user) => { 
-        const identify = {
-            email,
-            user,
-        }
-        setInfo(identify)
+
+    // function call by useFrom
+    const abdultFunc = (email , visitor) => {
+        setInfo({email, visitor})
     }
     return (
         <div className=' max-w-md mx-auto px-4 py-10 my-10 rounded-md bg-sky-900 text-black'>

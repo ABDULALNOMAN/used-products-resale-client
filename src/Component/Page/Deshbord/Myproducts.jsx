@@ -9,19 +9,18 @@ const Myproducts = () => {
     const { data:productsData=[],refetch } = useQuery({
         queryKey: ["myproducts"],
         queryFn: async () => {
-            const res = await fetch(`https://gsm-area-server.vercel.app/myproducts?email=${users?.email}`)
+            const res = await fetch(`http://localhost:5000/myproducts?email=${users?.email}`)
             const data = res.json()
             return data
         }
         
     })
     const handleProductDelete = (id) => {
-        fetch(`https://gsm-area-server.vercel.app/deleteadvatise?id=${id}`, {
+        fetch(`http://localhost:5000/deleteadvatise?id=${id}`, {
             method:'DELETE'
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success('delete products')
                     refetch()

@@ -1,28 +1,30 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
+import Loding from '../../other/Loding';
 
 const Allseller = () => {
-    const { data:allseller=[],refetch } = useQuery({
+    const { data:allseller=[],refetch,isLoading } = useQuery({
         queryKey:['allseller'],
         queryFn: async() => {
-            const res =await fetch('https://gsm-area-server.vercel.app/allseller')
+            const res =await fetch('http://localhost:5000/allseller')
             const data = res.json()
             return data
         }
     })
     const handleDeleteUser = (email) => {
-        fetch(`https://gsm-area-server.vercel.app/userdelete?email=${email}`, {
+        fetch(`http://localhost:5000/userdelete?email=${email}`, {
             method:'DELETE'
         })
             .then(res => res.json())
             .then(data =>{
-                console.log(data)
                 if(data.deletedCount>0){
                     refetch()
                 }
             })
     }
-    console.log(allseller)
+    if (isLoading) {
+        return <Loding></Loding>
+    }
     return (
         <div className='container mx-auto'>
             <div className="overflow-x-auto">

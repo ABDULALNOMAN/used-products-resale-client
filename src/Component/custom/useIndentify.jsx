@@ -3,8 +3,8 @@ import { useEffect, useState } from "react"
 const useIndentify = (info) => {
     const [userStore, setUserStore] = useState('')
         useEffect(() => {
-            if(info.email){
-                fetch('https://gsm-area-server.vercel.app/userstore',{
+            if(info?.email){
+                fetch('http://localhost:5000/userstore',{
                     method:'POST',
                     headers: {
                         'content-type':'application/json'
@@ -17,6 +17,6 @@ const useIndentify = (info) => {
                 })
             }
         }, [info])
-     return(userStore)
+     return userStore
 }
 export default useIndentify

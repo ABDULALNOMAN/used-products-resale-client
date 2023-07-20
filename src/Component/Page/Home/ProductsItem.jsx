@@ -1,11 +1,16 @@
 import React from 'react';
+import { useNavigation } from 'react-router-dom';
+import Loding from '../other/Loding';
 
-const Productsitem = ({ data,setModalitem }) => {
+const Productsitem = ({ data, setModalitem }) => {
+    const navigate = useNavigation()
     const { image, location, name, originl, resale, sellerName, use, status,date } = data
-    console.log(data)
+    if (navigate.state === 'loding') {
+        return <Loding></Loding>
+    }
     return (
         <div className='h-full'>
-            <div className=" bg-gray-700 shadow-xl flex justify-evenly  h-full w-full rounded-md">
+            <div className=" bg-gray-700 shadow-xl flex justify-evenly h-full w-full rounded-md">
                 <div className=' w-1/2'>
                     <figure className='h-full'><img className='w-full h-full rounded-md' src={image} alt="Movie"/></figure>
                 </div>

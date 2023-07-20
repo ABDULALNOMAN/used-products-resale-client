@@ -4,7 +4,6 @@ import { CallContext } from '../../Context/Context';
 const Modal = ({ modalitem,setModalitem,handleModalForm,setItemId}) => {
     const {users}=useContext(CallContext)
     const { name, resale,_id } = modalitem
-    console.log(modalitem)
     setItemId(_id)
     return (
         <div className='px-4'>
@@ -12,7 +11,7 @@ const Modal = ({ modalitem,setModalitem,handleModalForm,setItemId}) => {
             <div className="modal modal-bottom sm:modal-middle">
                 <div className="modal-box">
                     <h3 className="font-bold text-lg">Congratulations random Internet user!</h3>
-                    <form onSubmit={handleModalForm} className='grid grid-cols-1 gap-4'>
+                    <form onSubmit={handleModalForm} className='grid grid-cols-1 gap-4 text-black'>
                         <input
                             type="text" defaultValue={users?.displayName} disabled placeholder="Type here" className="input input-bordered w-full" />
                         <input

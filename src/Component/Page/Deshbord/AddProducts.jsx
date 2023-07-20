@@ -15,7 +15,6 @@ const AddProducts = () => {
             })
             .then(res => res.json())
             .then(item => {
-                console.log(item)
                 if (item.success) {
                     const dataForm ={
                         image:item.data.url,
@@ -33,7 +32,7 @@ const AddProducts = () => {
                         seller_email: users?.email,
                         status:'availlable'
                     }
-                    fetch(`https://gsm-area-server.vercel.app/productsadd?email=${users?.email}`,{
+                    fetch(`http://localhost:5000/productsadd?email=${users?.email}`,{
                         method:'POST',
                         headers:{
                             'content-type':'application/json'
@@ -42,7 +41,6 @@ const AddProducts = () => {
                     })
                         .then(res => res.json())
                         .then(data => {
-                            console.log(data)
                             if (data.acknowledged) {
                                 toast.success('add product success')
                             }
@@ -51,9 +49,9 @@ const AddProducts = () => {
             })
     }
     return (
-        <div className='container mx-auto my-8'> 
+        <div className='container h-fit mx-auto my-8'> 
             <div className='p-4 border-4 bg-secondary rounded-lg'>
-                <form onSubmit={handleSubmit(formSubmit)} className='grid grid-cols-1 gap-3 max-w-md mx-auto'>
+                <form onSubmit={handleSubmit(formSubmit)} className='grid grid-cols-1 gap-3 max-w-md mx-auto h-full'>
                     <div className='grid grid-cols-2 gap-2'>
                         <input {...register('product')} type='text' placeholder='enter a product name' name='product' id="" className='input' input-bordered />
                         <input {...register('price')} type="number" placeholder='enter price' name="price" id="" className="input" input-bordered/>

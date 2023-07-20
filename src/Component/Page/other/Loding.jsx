@@ -2,8 +2,8 @@ import React from 'react';
 
 const Loding = () => {
     return (
-        <div>
-            <div className="radial-progress animate-spin text-primary" style={{"--value":60}}></div>
+        <div className='h-[90vh] flex justify-center items-center'>
+            <div className="radial-progress animate-spin text-amber-500" style={{"--value":70}}></div>
         </div>
     );
 };

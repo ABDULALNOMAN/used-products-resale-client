@@ -13,37 +13,24 @@ const Login = () => {
     const from = location?.state?.from?.pathname || '/'
     const [info , setInfo] = useState({})
     const siteuser = useIndentify(info)
-    if (siteuser.acknowledged) {
-        navigate(from, { replace: true })
-    }
+    siteuser?.acknowledged && navigate(from,{replace:true})
+
+    // submit function
     const handlelogIn = (data) => {
-        console.log(data)
         LogInUser(data.email, data.password)
             .then(result => {
-                const user = result.user;
-                console.log(user)
-                navigate(from,{replace:true})
-                toast.success('login successfuly')
-
+                result?.user && toast.success("login sucessfully") && navigate(from ,{replace:true})
             })
         .catch((error) => {
-            console.log(error)
+
         })
     }
     const handleGoogleSignIn = () => {
         googleSignin()
-            .then(result => {
-                const user = result.user;
-                console.log(user)
-                toast.success('login successfuly')
-                const information = {
-                    email:user.email,
-                    user:'user'
-                }
-                setInfo(information)    
+            .then(result => { 
+                result?.user && toast.success("login successfull") && setInfo({email:user?.email, visitor:"user"}) 
             })
             .catch(error => {
-                console.log(error)
                 
         })
     }

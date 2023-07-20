@@ -1,27 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import Loding from '../other/Loding';
 
-const Privetseller = ({children}) => {
+const Privetseller = ({ children }) => {
+    const location = useLocation()
     const { loding, users } = useContext(CallContext)
-    const { data } = useQuery({
-        queryKey: [users],
+    const { data, isLoading } = useQuery({
+        queryKey: ["sellerCheck", users?.email],
         queryFn: async () => {
-            const res =await fetch(`https://gsm-area-server.vercel.app/sellerCheck?seller=${users?.email}`)
+            const res =await fetch(`http://localhost:5000/sellerCheck?seller=${users?.email}`)
             const data = res.json()
             return data
         }
     })
-    console.log(data)
-    if (loding) {
+    if (loding || isLoading) {
         return <Loding></Loding>
     }
-    if (users && data && data.user) {
+    if (users && data) {
         return children
     }
-    return <Navigate to={'/login'}></Navigate>
+    return <Navigate to={'/login'} state={{from:location}} replace ></Navigate>
 };
 
 export default Privetseller;

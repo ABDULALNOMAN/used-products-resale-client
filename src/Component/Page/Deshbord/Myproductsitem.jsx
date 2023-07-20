@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
 const Myproductsitem = ({ product,handleProductDelete }) => {
-    console.log(product)
     const { categroy, date, description, image, status, location, name, customerInfo, seller_email, resale,_id } = product
     const [adver ,setAdver]=useState(null)
     const productsData = 
@@ -38,7 +37,7 @@ const Myproductsitem = ({ product,handleProductDelete }) => {
                 seller_email:product.seller_email,
                 status:product.status
             }
-        fetch('https://gsm-area-server.vercel.app/advertize',{
+        fetch('http://localhost:5000/advertize',{
             method:'POST',
             headers:{
                 'content-type':'application/json'
@@ -47,7 +46,6 @@ const Myproductsitem = ({ product,handleProductDelete }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     toast.success('addvertise product added')
                     setAdver(data.acknowledged)
