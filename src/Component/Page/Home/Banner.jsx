@@ -4,11 +4,11 @@ import bannerimg from '../../../assets/smartphone.14bb354-removebg-preview (1).p
 const Banner = () => {
     
     return (
-        <div className='bg-info'>
+        <div className=''>
             <div className=' container mx-auto'>
                 <div className='w-full h-[80vh] flex lg:flex-row flex-col justify-around items-center '>
                     <div className='lg:w-1/2 w-full '>
-                        <h1 className='font-bold lg:text-6xl md:text-5xl text-5xl lg:mx-0 mx-3 lg:text-left text-center text-gray-200'>sell you smart phone gsmarea and quick cash</h1>
+                        <h1 className='font-bold lg:text-6xl md:text-5xl text-5xl lg:mx-0 mx-3 lg:text-left text-center capitalize'>sell you smart phone gsmarea and quick cash</h1>
                         <div className="form-control lg:block hidden mt-4">
                             <div className="input-group ">
                                 <input type="text" placeholder="Search…" className="input input-bordered" />

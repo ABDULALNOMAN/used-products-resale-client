@@ -4,16 +4,19 @@ import { toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CallContext } from '../../Context/Context';
 import useIndentify from '../../custom/useIndentify';
+import { FcGoogle } from 'react-icons/fc';
 
 const Login = () => {
-    const { LogInUser, googleSignin } = useContext(CallContext)
+    const { LogInUser, googleSignin, users } = useContext(CallContext)
     const { register, handleSubmit } = useForm()
     const location = useLocation()
     const navigate = useNavigate()
     const from = location?.state?.from?.pathname || '/'
     const [info , setInfo] = useState({})
     const siteuser = useIndentify(info)
-    siteuser?.acknowledged && navigate(from,{replace:true})
+    if(siteuser?.acknowledged || users?.uid ){
+     navigate(from,{replace:true})
+    }
 
     // submit function
     const handlelogIn = (data) => {
@@ -22,16 +25,18 @@ const Login = () => {
                 result?.user && toast.success("login sucessfully") && navigate(from ,{replace:true})
             })
         .catch((error) => {
+            const errMess = error?.message?.split("/")[1].split(")")[0]
+            toast.error(errMess)
 
         })
     }
     const handleGoogleSignIn = () => {
         googleSignin()
             .then(result => { 
-                result?.user && toast.success("login successfull") && setInfo({email:user?.email, visitor:"user"}) 
+                result?.user && toast.success("login successfull") && setInfo({email:result?.user?.email, visitor:"user"}) 
             })
             .catch(error => {
-                
+                toast.error("error")
         })
     }
     return (
@@ -55,7 +60,7 @@ const Login = () => {
                 </div>
             </form>
             <div className='flex justify-evenly items-center w-96 mx-auto'>
-                <button onClick={handleGoogleSignIn} className='btn btn-primary'>google</button>
+                <button onClick={handleGoogleSignIn} className='btn btn-circle bg-slate-300'><FcGoogle className='text-3xl'></FcGoogle></button>
             </div>
         </div>
     );

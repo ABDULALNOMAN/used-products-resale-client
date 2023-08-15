@@ -10,15 +10,15 @@ const Privetseller = ({ children }) => {
     const { data, isLoading } = useQuery({
         queryKey: ["sellerCheck", users?.email],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/sellerCheck?seller=${users?.email}`)
-            const data = res.json()
+            const res =await fetch(`https://gsm-area-server.vercel.app/sellerCheck?seller=${users?.email}`)
+            const data = await res.json()
             return data
         }
     })
     if (loding || isLoading) {
         return <Loding></Loding>
     }
-    if (users && data) {
+    if (users && data && data?.visitor) {
         return children
     }
     return <Navigate to={'/login'} state={{from:location}} replace ></Navigate>

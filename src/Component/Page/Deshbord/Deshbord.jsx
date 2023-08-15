@@ -13,7 +13,7 @@ const Deshbord = () => {
     const { data:existing={}} = useQuery({
         queryKey:["users", users],
         queryFn: async() => {
-            const res = await fetch(`http://localhost:5000/users?email=${users?.email}`)
+            const res = await fetch(`https://gsm-area-server.vercel.app/users?email=${users?.email}`)
             const data = await res.json()
             return data
         }
@@ -33,15 +33,18 @@ const Deshbord = () => {
                             <li><Link to={'/deshbord/addproducts'}>Add a products</Link></li>
                             <li><Link to={'/deshbord/myproducts'}>My products</Link></li>
                             <li><Link>My buyers</Link></li>
+                            <li><Link>seller</Link></li>
                         </>:<></>}
                         {users && existing?.visitor =='user'?<>
                             <li><Link to='/deshbord/myorders'>my orders</Link></li>
                             <li><Link>my wishlist</Link></li>
+                            <li><Link>user</Link></li>
                         </>:<></>}
                         {users && existing?.visitor == 'admin' ? <>
                             <li><Link to="/deshbord/allseler">All seller</Link></li>
                             <li><Link to='/deshbord/allbuyers'>All Buyers</Link></li>
                             <li><Link>Report item</Link></li>
+                            <li><Link>admin</Link></li>
                         </> : <></>}
                     </ul>
                 </div>

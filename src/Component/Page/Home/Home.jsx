@@ -4,7 +4,7 @@ import Loding from '../other/Loding';
 import About from './About';
 import Advertised from './Advertised';
 import Banner from './Banner';
-import Service from './Service';
+import Category from './Category';
 
 const Home = () => {
     const navigate = useNavigation()
@@ -14,7 +14,7 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <Service></Service>
+            <Category></Category>
             <About></About>
             <Advertised></Advertised>
         </div>

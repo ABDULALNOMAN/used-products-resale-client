@@ -4,9 +4,9 @@ const Advetiseditem = ({item }) => {
     const {categroy, date ,description , image,location, name,number,originl,product_type,resale,sellerName,seller_email,use}=item
     return (
         <div>
-            <div className="flex flex-row bg-sky-500 h-full rounded-lg capitalize">
-                <figure className='h-full'><img className='h-full rounded-lg' src={image} alt="Movie"/></figure>
-                <div className="w-full p-4">
+            <div className="flex flex-row bg-sky-500 h-full rounded-lg capitalize w-full gap-4">
+                <img className='h-full rounded-lg w-4/12' src={image} alt="Movie"/>
+                <div className="w-full ">
                     <div>
                         <h2 className="card-title">{name}</h2>
                     </div>

@@ -2,12 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import Loding from '../other/Loding';
 import ServicesItem from './ServicesItem';
+import Errorpage from '../../Errorpage';
 
-const Service = () => {
+const Category = () => {
     const { data:items=[],isLoading, error} = useQuery({
         queryKey: ['services'],
         queryFn: (async() => {
-            const res = await fetch('http://localhost:5000/services')
+            const res = await fetch('https://gsm-area-server.vercel.app/services')
             const data = res.json()
             return data
         })
@@ -19,9 +20,9 @@ const Service = () => {
             <div className='grid grid-cols-3 gap-3'>
                 {items?.length? items?.map(item =><ServicesItem key={item._id} item={item}></ServicesItem>):""}
             </div>
-            {error && <p>error...</p>}
+            {error && <Errorpage></Errorpage>}
         </div>
     );
 };
 
-export default Service;
+export default Category;

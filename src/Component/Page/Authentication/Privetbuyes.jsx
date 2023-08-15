@@ -10,7 +10,7 @@ const Privetbuyes = ({children}) => {
     const { data, isLoading } = useQuery({
         queryKey: ["buyersCheck",users?.email],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/buyersCheck?buyer=${users?.email}`)
+            const res =await fetch(`https://gsm-area-server.vercel.app/buyersCheck?buyer=${users?.email}`)
             const data = await res.json()
             return data
         }

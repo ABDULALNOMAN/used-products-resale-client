@@ -6,13 +6,13 @@ const Allseller = () => {
     const { data:allseller=[],refetch,isLoading } = useQuery({
         queryKey:['allseller'],
         queryFn: async() => {
-            const res =await fetch('http://localhost:5000/allseller')
+            const res =await fetch('https://gsm-area-server.vercel.app/allseller')
             const data = res.json()
             return data
         }
     })
     const handleDeleteUser = (email) => {
-        fetch(`http://localhost:5000/userdelete?email=${email}`, {
+        fetch(`https://gsm-area-server.vercel.app/userdelete?email=${email}`, {
             method:'DELETE'
         })
             .then(res => res.json())
@@ -28,7 +28,7 @@ const Allseller = () => {
     return (
         <div className='container mx-auto'>
             <div className="overflow-x-auto">
-                <table className="table w-full">
+                <table className="table w-full text-black">
                     <thead>
                     <tr>
                         <th>index</th>

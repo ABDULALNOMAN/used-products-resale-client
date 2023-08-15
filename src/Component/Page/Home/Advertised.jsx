@@ -7,7 +7,7 @@ const Advertised = () => {
     const { data:advertise=[], isLoading, error} = useQuery({
         queryKey:['homeadvertise'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/homeadvertise')
+            const res = await fetch('https://gsm-area-server.vercel.app/homeadvertise')
             const data = res.json()
             return data
         }

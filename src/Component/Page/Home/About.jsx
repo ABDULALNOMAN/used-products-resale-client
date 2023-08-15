@@ -12,7 +12,6 @@ const About = () => {
                     <p className='text-lg'>gsmarea is populer movile exchange application best movile phone price only gsmarea.many people use is because of the good user exprrience</p>
                 </div>
             </div>
-            <a href="https://console.firebase.google.com/project/gsmarea-45afe/authentication/users" target="_blank" rel="noopener noreferrer">বাংলাদেশ</a>
         </div>
     );
 };

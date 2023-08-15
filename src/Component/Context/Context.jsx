@@ -9,9 +9,10 @@ const Context = ({ children }) => {
     const [loding, setLoding] = useState(false)
     const [users, setUsers] = useState({})
     const [open,setOpen]=useState(null)
+
+
     const handleSignUp = (email, password) => {
         setLoding(true)
-        console.log(email, password)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const LogInUser = (email,password) => {
@@ -25,7 +26,7 @@ const Context = ({ children }) => {
     useEffect(() => {
         const  unsubcribe = onAuthStateChanged(auth, currentUser => {
             setUsers(currentUser)
-            setLoding(false)
+             setLoding(false)
         })
         return () => {
             unsubcribe()

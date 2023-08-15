@@ -7,7 +7,6 @@
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
-  background-color: #3B6978;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -17,3 +16,14 @@
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 }
+
+.dark{
+  background: #000;
+  color:#fff;
+}
+
+.light{
+  background: #fff;
+  color: #000;
+}
+

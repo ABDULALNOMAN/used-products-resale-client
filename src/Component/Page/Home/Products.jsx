@@ -24,7 +24,7 @@ const Products = () => {
             number:form?.number?.value,
             location: form?.location?.value,
         }
-        fetch(`http://localhost:5000/bookitem?id=${itemId}`,{
+        fetch(`https://gsm-area-server.vercel.app/bookitem?id=${itemId}`,{
             method:'PUT',
             headers:{
                 'content-type':'application/json'

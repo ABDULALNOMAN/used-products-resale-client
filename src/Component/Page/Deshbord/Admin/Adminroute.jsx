@@ -1,26 +1,27 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import { CallContext } from '../../../Context/Context';
 import Loding from '../../other/Loding';
 
 const Adminroute = ({children}) => {
     const { loding, users } = useContext(CallContext)
-    const { data={} } = useQuery({
-        queryKey:[users],
+    const location = useLocation()
+    const { data={},isLoading } = useQuery({
+        queryKey:["admincheck", users],
         queryFn: async () => {
-            const res =await fetch(`http://localhost:5000/admincheck?admin=${users?.email}`)
+            const res =await fetch(`https://gsm-area-server.vercel.app/admincheck?admin=${users?.email}`)
             const data = res.json()
             return data
         }
     })
-    if(loding) {
+    if(loding || isLoading) {
         return <Loding></Loding>
     }
-    if (users && data && data.user) {
+    if (users && data && data?.visitor) {
         return children
     }
-    return <Navigate to={'/login'}></Navigate>
+    return <Navigate to={'/login'} state={{from:location}} replace></Navigate>
 };
 
 export default Adminroute;
